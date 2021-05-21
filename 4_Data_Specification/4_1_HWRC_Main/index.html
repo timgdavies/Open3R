@@ -1,0 +1,906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>HWRC Standard Spreadsheet Format - Open3R</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hwrc-standard-spreadsheet-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open3R" class="md-header__button md-logo" aria-label="Open3R" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open3R
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HWRC Standard Spreadsheet Format
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open3R" class="md-nav__button md-logo" aria-label="Open3R" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Open3R
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Open3R
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        1 Introduction
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="1 Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1 Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Introduction/1_1_Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        2 Key Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2 Key Concepts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2 Key Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_Key_Concepts/2_1_Key_Concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        3 Data Formats
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3 Data Formats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          3 Data Formats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Data_Formats/3_1_Data_Formats/" class="md-nav__link">
+        Data Formats
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        4 Data Specification
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="4 Data Specification" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          4 Data Specification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        HWRC Standard Spreadsheet Format
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_2_HWRC_Area_Served/" class="md-nav__link">
+        HWRC Area Served
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_3_HWRC_Services/" class="md-nav__link">
+        HWRC Services Offered
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        5 Identifiers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="5 Identifiers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          5 Identifiers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5_Identifiers/5_1_Identifiers/" class="md-nav__link">
+        Identifiers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        6 Controlled Lists
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="6 Controlled Lists" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          6 Controlled Lists
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6_Controlled_Lists/6_1_Controlled_Lists/" class="md-nav__link">
+        Controlled Lists
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        7 Governance
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="7 Governance" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          7 Governance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7_Governance/7_1_Governance/" class="md-nav__link">
+        Governance
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        8 Supporting Files
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="8 Supporting Files" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          8 Supporting Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8_Supporting_Files/8_1_Template_Files/" class="md-nav__link">
+        8 1 Template Files
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8_Supporting_Files/8_2_Example_Files/" class="md-nav__link">
+        8 2 Example Files
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="hwrc-standard-spreadsheet-format">HWRC Standard Spreadsheet Format</h1>
+<p>The spreadsheet format is the simplest way to provide information about Household Waste Recycling Centres.</p>
+<p>The following table lists the column headings that should be used. When providing this information, you can either build your spreadsheet from scratch, or use the template provided.</p>
+<p>hwrc_main.csv</p>
+<table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Status</th>
+<th align="left">Format</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">identifier</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">A globally unique identifier. See identifiers section for information on how to construct this identifier</td>
+</tr>
+<tr>
+<td align="left">govIdentifier</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">An identifier that is used by Government environmental departments</td>
+</tr>
+<tr>
+<td align="left">URL</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">URI</td>
+<td align="left">A URL that links to a web page that provides more information about this HWRC</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The name of this HWRC</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">A description of this HWRC</td>
+</tr>
+<tr>
+<td align="left">siteAddressStreet</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC</td>
+</tr>
+<tr>
+<td align="left">siteAddressCity</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC</td>
+</tr>
+<tr>
+<td align="left">siteAddressCounty</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC</td>
+</tr>
+<tr>
+<td align="left">siteAddressCountry</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC</td>
+</tr>
+<tr>
+<td align="left">siteAddressPostcode</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The postcode of this HWRC</td>
+</tr>
+<tr>
+<td align="left">latitude</td>
+<td align="left"><code>required</code></td>
+<td align="left">number</td>
+<td align="left">The latitude of a point close to the centre of the site. The value should be 6 or fewer decimal places, using the WGS84 or ETRS89 coordinate systems. See <a href="https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-location-point">this government guidance for more information about this standard</a></td>
+</tr>
+<tr>
+<td align="left">longitude</td>
+<td align="left"><code>required</code></td>
+<td align="left">number</td>
+<td align="left">The longitude of a point close to the centre of the site. The value should be 6 or fewer decimal places, using the WGS84 or ETRS89 coordinate systems. See <a href="https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-location-point">this government guidance for more information about this standard</a></td>
+</tr>
+<tr>
+<td align="left">telephone</td>
+<td align="left"><code>optional</code></td>
+<td align="left">String</td>
+<td align="left">Contact telephone number for this HWRC, or the operator / owner's call centre</td>
+</tr>
+<tr>
+<td align="left">openingHours</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">Specifies opening hours of this HWRC. Opening hours should be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'. Days are specified using the following two-letter combinations: Mo, Tu, We, Th, Fr, Sa, Su. Times are specified using 24:00 format. For example, 3pm is specified as 15:00, 10am as 10:00. An example of this would be <code>Tu,We,Th 08:00-17:00</code>. Multiple entries should be separated by semi-colons</td>
+</tr>
+<tr>
+<td align="left">ownerID</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">An identifier from the local authorities controlled list</td>
+</tr>
+<tr>
+<td align="left">ownerName</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The name of the owner of the HWRC</td>
+</tr>
+<tr>
+<td align="left">operatorID</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">A globally unique identifier. See identifiers section for information on how to construct this identifier</td>
+</tr>
+<tr>
+<td align="left">operatorCompanyID</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The UK Companies House identifier for this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">operatorName</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The name of the organisation responsible for operating the site</td>
+</tr>
+<tr>
+<td align="left">operatorAddressStreet</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">operatorAddressCity</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">operatorAddressCounty</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">operatorAddressCountry</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The street address of this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">operatorAddressPostcode</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">The postcode of this HWRC's operator</td>
+</tr>
+<tr>
+<td align="left">dateOpened</td>
+<td align="left"><code>optional</code></td>
+<td align="left">String</td>
+<td align="left">The date that this HWRC opened. Supply in format YYYY-MM-DD. If day and month are not known, then just supplying the year will suffice</td>
+</tr>
+<tr>
+<td align="left">dateClosed</td>
+<td align="left"><code>optional</code></td>
+<td align="left">String</td>
+<td align="left">The date that this HWRC closed. Supply in format YYYY-MM-DD. If day and month are not known, then just supplying the year will suffice</td>
+</tr>
+<tr>
+<td align="left">areaServed</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">Either a semi-colon-separated list of local authorities identifiers, or a unique identifier of an area served provided in a separate csv, geoJSON or Shape file</td>
+</tr>
+<tr>
+<td align="left">charge</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">Boolean</td>
+<td align="left">Is there a cost associated with using this HWRC?</td>
+</tr>
+<tr>
+<td align="left">proofOfResidency</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">Boolean</td>
+<td align="left">Do household users of this site need to provide proof of residency to access the site?</td>
+</tr>
+<tr>
+<td align="left">accessibilityNotes</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">String</td>
+<td align="left">Details of any accessibility issues at the site - eg split-level access with stairs only</td>
+</tr>
+<tr>
+<td align="left">pedestrianAccess</td>
+<td align="left"><code>optional</code></td>
+<td align="left">Boolean</td>
+<td align="left">Is there pedestrian access to the site?</td>
+</tr>
+<tr>
+<td align="left">trade</td>
+<td align="left"><code>optional</code></td>
+<td align="left">Boolean</td>
+<td align="left">Is this HWRC accessible by tradespeople?</td>
+</tr>
+<tr>
+<td align="left">ANPR</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">Boolean</td>
+<td align="left">Is automatic number plate recognition in use at the site?</td>
+</tr>
+<tr>
+<td align="left">reuseShop</td>
+<td align="left"><code>recommended</code></td>
+<td align="left">Boolean</td>
+<td align="left">Is there a reuse shop at this site?</td>
+</tr>
+<tr>
+<td align="left">dateUpdated</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The date that this record was last updated. Supply in format YYYY-MM-DD</td>
+</tr>
+<tr>
+<td align="left">dateValidFrom</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The date that this record is valid from. Supply in format YYYY-MM-DD</td>
+</tr>
+<tr>
+<td align="left">dateValidTo</td>
+<td align="left"><code>required</code></td>
+<td align="left">String</td>
+<td align="left">The date that this record is valid to. Supply in format YYYY-MM-DD</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../3_Data_Formats/3_1_Data_Formats/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Data Formats
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../4_2_HWRC_Area_Served/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              HWRC Area Served
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>
